@@ -15,7 +15,26 @@
       ></iframe>
     </div>
     <div v-else>
-      <vue-plyr ref="plyr" :options="options">
+      <video-js
+        ref="plyr"
+        :options="options"
+        id="my_video_1"
+        class="vjs-default-skin"
+        controls
+        preload="auto"
+        width="640"
+        height="268"
+      >
+        <source :src="videoUrl" type="video/mp4" />
+        <track
+          kind="captions"
+          label="Default"
+          srclang="default"
+          :src="subtitle"
+          default
+        />
+      </video-js>
+      <!-- <vue-plyr ref="plyr" :options="options">
         <video controls crossorigin playsinline>
           <source :src="videoUrl" type="video/mp4" />
           <track
@@ -26,7 +45,7 @@
             default
           />
         </video>
-      </vue-plyr>
+      </vue-plyr> -->
     </div>
     <div class="card">
       <header class="card-header">
