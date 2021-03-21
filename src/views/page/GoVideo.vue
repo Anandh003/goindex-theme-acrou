@@ -15,7 +15,7 @@
       ></iframe>
     </div>
     <div v-else>
-      <video-js ref="plyr" controls class="vjs-default-skin">
+      <!-- <video-js ref="plyr" controls class="vjs-default-skin">
         <source :src="videoUrl" type="video/mp4" />
         <track
           kind="captions"
@@ -24,8 +24,8 @@
           :src="subtitle"
           default
         />
-      </video-js>
-      <!-- <vue-plyr ref="plyr" :options="options">
+      </video-js> -->
+      <vue-plyr ref="plyr" :options="options">
         <video controls crossorigin playsinline>
           <source :src="videoUrl" type="video/mp4" />
           <track
@@ -36,7 +36,7 @@
             default
           />
         </video>
-      </vue-plyr> -->
+      </vue-plyr>
     </div>
     <div class="card">
       <header class="card-header">
@@ -111,18 +111,18 @@ export default {
       // this.loadSub(path, index);
       this.videoUrl = window.location.origin + path;
       this.apiVideoUrl = this.options.api + this.videoUrl;
-      // if (!this.options.api) {
-      //   let options = {
-      //     src: this.videoUrl,
-      //     autoplay: this.options.autoplay,
-      //     media: this.player.media,
-      //   };
-      //   // if (this.suffix === "m3u8") {
-      //   //   this.loadHls(options);
-      //   // } else if (this.suffix === "flv") {
-      //   //   this.loadFlv(options);
-      //   // }
-      // }
+      if (!this.options.api) {
+        let options = {
+          src: this.videoUrl,
+          autoplay: this.options.autoplay,
+          media: this.player.media,
+        };
+        if (this.suffix === "m3u8") {
+          this.loadHls(options);
+        } else if (this.suffix === "flv") {
+          this.loadFlv(options);
+        }
+      }
     },
     loadSub(path, index) {
       this.subtitle = path.substring(0, index) + ".vtt";
