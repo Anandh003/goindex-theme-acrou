@@ -15,16 +15,7 @@
       ></iframe>
     </div>
     <div v-else>
-      <video-js
-        ref="plyr"
-        :options="options"
-        id="my_video_1"
-        class="vjs-default-skin"
-        controls
-        preload="auto"
-        width="640"
-        height="268"
-      >
+      <video-js ref="plyr" controls class="vjs-default-skin">
         <source :src="videoUrl" type="video/mp4" />
         <track
           kind="captions"
@@ -117,21 +108,21 @@ export default {
       let path = encodeURI(this.url);
       let index = path.lastIndexOf(".");
       this.suffix = path.substring(index + 1, path.length);
-      this.loadSub(path, index);
+      // this.loadSub(path, index);
       this.videoUrl = window.location.origin + path;
       this.apiVideoUrl = this.options.api + this.videoUrl;
-      if (!this.options.api) {
-        let options = {
-          src: this.videoUrl,
-          autoplay: this.options.autoplay,
-          media: this.player.media,
-        };
-        if (this.suffix === "m3u8") {
-          this.loadHls(options);
-        } else if (this.suffix === "flv") {
-          this.loadFlv(options);
-        }
-      }
+      // if (!this.options.api) {
+      //   let options = {
+      //     src: this.videoUrl,
+      //     autoplay: this.options.autoplay,
+      //     media: this.player.media,
+      //   };
+      //   // if (this.suffix === "m3u8") {
+      //   //   this.loadHls(options);
+      //   // } else if (this.suffix === "flv") {
+      //   //   this.loadFlv(options);
+      //   // }
+      // }
     },
     loadSub(path, index) {
       this.subtitle = path.substring(0, index) + ".vtt";

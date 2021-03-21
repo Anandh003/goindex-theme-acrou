@@ -1,6 +1,6 @@
 var authConfig = {
   siteName: "Chaos", // 网站名称
-  version: "2.0.8", // 程序版本
+  version: "1.0", // 程序版本
   theme: "acrou",
   // 强烈推荐使用自己的 client_id 和 client_secret
   client_id:
