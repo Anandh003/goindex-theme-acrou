@@ -6,8 +6,9 @@
           <div class="tags has-addons">
             <a
               class="tag is-dark"
-              href="https://github.com/Aicirou/goindex-theme-acrou"
-            >goindex-theme-acrou</a>
+              href="https://github.com/Anandh003/goindex-theme-acrou"
+              >goindex-theme-acrou</a
+            >
             <span class="tag is-light">
               MIT &nbsp;
               <span class="icon">
@@ -25,12 +26,12 @@
 export default {
   props: {},
   watch: {},
-  data: function () {
+  data: function() {
     return {
-      content: ""
+      content: "",
     };
   },
   components: {},
-  methods: {}
+  methods: {},
 };
 </script>

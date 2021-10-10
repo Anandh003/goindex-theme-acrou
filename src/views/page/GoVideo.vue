@@ -15,6 +15,16 @@
       ></iframe>
     </div>
     <div v-else>
+      <!-- <video-js ref="plyr" controls class="vjs-default-skin">
+        <source :src="videoUrl" type="video/mp4" />
+        <track
+          kind="captions"
+          label="Default"
+          srclang="default"
+          :src="subtitle"
+          default
+        />
+      </video-js> -->
       <vue-plyr ref="plyr" :options="options">
         <video controls crossorigin playsinline>
           <source :src="videoUrl" type="video/mp4" />
@@ -98,7 +108,7 @@ export default {
       let path = encodeURI(this.url);
       let index = path.lastIndexOf(".");
       this.suffix = path.substring(index + 1, path.length);
-      this.loadSub(path, index);
+      // this.loadSub(path, index);
       this.videoUrl = window.location.origin + path;
       this.apiVideoUrl = this.options.api + this.videoUrl;
       if (!this.options.api) {
